@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <title>Tampilan Data</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h2>Tabel Data Mahasiswa</h2>
+            <h:dataTable border="1" var="mhs" value="#{control.mahasiswaList}">
+                <h:column>
+                    <f:facet name="header">SCODE</f:facet>
+                    #{mhs.scode}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nama</f:facet>
+                    #{mhs.nama}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Select</f:facet>
+                    <h:commandButton value="Select" action="#{control.setMahasiswa(mhs)}"/>
+                </h:column>
+            </h:dataTable>
+            <hr/>
+        
+            <h2>Action Data Mahasiswa</h2>
+            <h:inputText a:placeholder="SCODE" value="#{control.mahasiswa.scode}"/><br/>
+            <h:inputText a:placeholder="Nama Mahasiswa" value="#{control.mahasiswa.nama}"/><br/>
+            <h:commandButton value="Add" action="#{control.insert()}"/>&nbsp;
+            <h:commandButton value="Edit" action="#{control.update()}"/>&nbsp;
+            <h:commandButton value="Delete" action="#{control.delete()}"/>&nbsp;
+            <hr/>
+            
+            
+        </h:form>
+        Hello from Facelets
+    </h:body>
+</html>
+
